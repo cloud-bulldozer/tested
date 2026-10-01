@@ -12,6 +12,7 @@
 * **Prow Job Reference(s):**
   * [periodic-ci-openshift-eng-ocp-perfscale-main-aws-5.0-nightly-x86-control-plane-252nodes/2094357209625399296](https://prow.ci.openshift.org/view/gs/origin-ci-test/logs/periodic-ci-openshift-eng-ocp-perfscale-main-aws-5.0-nightly-x86-control-plane-252nodes/2094357209625399296)
   * [periodic-ci-openshift-eng-ocp-perfscale-main-metal-5.0-nightly-x86-daily-virt-6nodes/2105462990689013760](https://prow.ci.openshift.org/view/gs/test-platform-results-public/logs/periodic-ci-openshift-eng-ocp-perfscale-main-metal-5.0-nightly-x86-daily-virt-6nodes/2105462990689013760)
+  * [periodic-ci-openshift-eng-ocp-perfscale-main-aws-5.0-nightly-x86-cudn-density-single-ns-1000-24nodes/2104421389535547392](https://prow.ci.openshift.org/view/gs/origin-ci-test/logs/periodic-ci-openshift-eng-ocp-perfscale-main-aws-5.0-nightly-x86-cudn-density-single-ns-1000-24nodes/2104421389535547392)
 
 ## Cluster-Wide Maximums
 
@@ -22,7 +23,7 @@ These metrics represent the highest total limits tested across the entire OpenSh
 | **Worker Nodes** | `252` | Scaled from 3 to 252 workers via workers-scale (3 MachineSets x 84 replicas across us-west-2a/c/d). Instance type: m5.xlarge. Masters: 3x m6a.4xlarge, Infra: 3x r5.8xlarge. NodeReady P99: 1026s. |
 | **Pods (Cluster Total)** | `61,854` | Peak running pods observed during node-density workload (57,451 workload pods + system pods). |
 | **Namespaces** | `2,343` | Peak namespace count during cluster-density-v2 (2,268 workload namespaces + 75 system namespaces). |
-| **CUDNs** | `1,000` | From cudn-density-1000 job (periodic-ci-openshift-eng-ocp-perfscale-main-aws-5.0-nightly-x86-cudn-density-1000). Tested with L2 BGP CUDNs. |
+| **CUDNs** | `1,000` | From cudn-density-1000 job. Tested with Layer 2 topology (ENABLE_LAYER_3=false). |
 
 ## Namespace-Scoped Maximums
 
@@ -47,7 +48,7 @@ Tested maximums for the cluster's software-defined network and ingress controlle
 | **Pods per Node** | `~228` | node-density: 57,451 pods / 252 workers. Peak cluster-wide running count: 61,854 (~245 per node including system pods). |
 | **Total L2 UDNs** | `63` | udn-density-pods workload: 63 iterations (0.25 x 252 nodes), Layer 2 enabled. Job took 1m54s. |
 | **Total L3 UDNs** | `N/A` | L3 UDNs were not tested in this run (--layer3=false). |
-| **Total L2 BGP CUDNs** | `1,000` | From cudn-density-1000 job (periodic-ci-openshift-eng-ocp-perfscale-main-aws-5.0-nightly-x86-cudn-density-1000). |
+| **Total L2 CUDNs** | `1,000` | From cudn-density-1000 job. Tested with Layer 2 topology (ENABLE_LAYER_3=false). |
 
 ## OpenShift Virtualization (CNV)
 
