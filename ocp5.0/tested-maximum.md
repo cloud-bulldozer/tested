@@ -9,7 +9,9 @@
 * **Last Updated:** `2026-10-01`
 * **OpenShift Version:** `5.0.0-0.nightly-2026-08-30-014421` (k8s v1.36.3)
 * **Infrastructure Platform:** `AWS` (us-west-2, OVNKubernetes SDN)
-* **Prow Job Reference(s):** `[periodic-ci-openshift-eng-ocp-perfscale-main-aws-5.0-nightly-x86-control-plane-252nodes/2094357209625399296](https://prow.ci.openshift.org/view/gs/origin-ci-test/logs/periodic-ci-openshift-eng-ocp-perfscale-main-aws-5.0-nightly-x86-control-plane-252nodes/2094357209625399296)`
+* **Prow Job Reference(s):**
+  * [periodic-ci-openshift-eng-ocp-perfscale-main-aws-5.0-nightly-x86-control-plane-252nodes/2094357209625399296](https://prow.ci.openshift.org/view/gs/origin-ci-test/logs/periodic-ci-openshift-eng-ocp-perfscale-main-aws-5.0-nightly-x86-control-plane-252nodes/2094357209625399296)
+  * [periodic-ci-openshift-eng-ocp-perfscale-main-metal-5.0-nightly-x86-daily-virt-6nodes/2105462990689013760](https://prow.ci.openshift.org/view/gs/test-platform-results-public/logs/periodic-ci-openshift-eng-ocp-perfscale-main-metal-5.0-nightly-x86-daily-virt-6nodes/2105462990689013760)
 
 ## Cluster-Wide Maximums
 
@@ -53,10 +55,10 @@ Tested maximums specific to virtual machine workloads running via OpenShift Virt
 
 | Resource | Achieved Maximum | Notes & Observations |
 | :--- | :--- | :--- |
-| **Virtual Machines (Cluster Total)** | `TBD` | From metal virt-density job (periodic-ci-openshift-eng-ocp-perfscale-main-metal-5.0-nightly-x86-virt-density). Orion reports 15 runs with vmiReadyLatency P99 avg 39s. |
-| **Virtual Machines per Node** | `TBD` | Data pending from metal virt-density job on bare-metal infrastructure. |
-| **Max VM Density (vCPU / Core)** | `TBD` | Data pending from metal virt-density job. |
-| **Concurrent VM Migrations** | `TBD` | Not tested in current job set. |
+| **Virtual Machines (Cluster Total)** | `100` | virt-udn-density on BareMetal (4 workers, 3 masters, 2 infra). 100 Fedora 40 VMs across 100 namespaces with L2 UDN (l2bridge). OCP Virtualization 5.0.0. VMReady P99: 28s, VMIRunning P99: 27s. |
+| **Virtual Machines per Node** | `25` | 100 VMs / 4 worker nodes. vmsPerNode config: 50. VM spec: 1 vCPU, 1Gi memory each. |
+| **Max VM Density (vCPU / Core)** | `1 vCPU / VM` | Each VM configured with vmCpu=1, vmMemory=1Gi. Bare-metal node core count not reported in artifacts. |
+| **Concurrent VM Migrations** | `N/A` | VM live migration was not tested in the virt-udn-density workload. |
 
 ## Additional Kubernetes Resources
 
