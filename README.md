@@ -1,2 +1,3 @@
-# tested
-Tracking our release tested maximums we have in our CPT
+# Tested
+Repo to tracking our release tested maximums we have in our OpenShift CPT
+
